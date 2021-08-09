@@ -11,6 +11,7 @@
         <module name="slf4j_springboot" />
         <module name="mvc_springboot" />
         <module name="SpringBoot" />
+        <module name="swagger2_springboot" />
         <module name="json_springboot" />
       </profile>
     </annotationProcessing>
@@ -25,6 +26,7 @@
       <module name="json_springboot" options="-parameters" />
       <module name="mvc_springboot" options="-parameters" />
       <module name="slf4j_springboot" options="-parameters" />
+      <module name="swagger2_springboot" options="-parameters" />
     </option>
   </component>
 </project>

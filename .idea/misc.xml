@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/slf4j_springboot/pom.xml" />
         <option value="$PROJECT_DIR$/config_springboot/pom.xml" />
         <option value="$PROJECT_DIR$/mvc_springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/swagger2_springboot/pom.xml" />
       </list>
     </option>
   </component>
