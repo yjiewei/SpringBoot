@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="config_springboot" />
         <module name="slf4j_springboot" />
+        <module name="mvc_springboot" />
         <module name="SpringBoot" />
         <module name="json_springboot" />
       </profile>
@@ -22,6 +23,7 @@
       <module name="config_springboot" options="-parameters" />
       <module name="json_spring_boot" options="-parameters" />
       <module name="json_springboot" options="-parameters" />
+      <module name="mvc_springboot" options="-parameters" />
       <module name="slf4j_springboot" options="-parameters" />
     </option>
   </component>
