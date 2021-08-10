@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+</head>
+<body>
+    <h2>姓名:</h2><h3 th:text="${myperson.name}"></h3>
+    <h2>性别:</h2><h3 th:text="${myperson.sex}"></h3>
+    <h2>年龄:</h2><h3 th:text="${myperson.age}"></h3>
+    <h2>学历:</h2><h3 th:text="${myperson.education}"></h3>
+    <h2>个人简介:</h2><h3 th:text="${myperson.information}"></h3>
+    <!--通过我们之前保存在model中的myperson实体获取表单中的内容-->
+</body>
+</html>

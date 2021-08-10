@@ -1,0 +1,6 @@
+spring:
+  thymeleaf:
+    cache: false # 2.关掉默认开启的页面缓存，这样才能实时看到效果
+
+server:
+  port: 8002
