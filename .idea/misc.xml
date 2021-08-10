@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/mvc_springboot/pom.xml" />
         <option value="$PROJECT_DIR$/swagger2_springboot/pom.xml" />
         <option value="$PROJECT_DIR$/thymeleaf_springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/exception_springboot/pom.xml" />
       </list>
     </option>
   </component>
