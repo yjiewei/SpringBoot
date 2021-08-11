@@ -3,6 +3,7 @@ package com.yjiewei.result;
 import lombok.Data;
 
 /**
+ * 0.定义返回的统一结构
  * 简化，没有返回数据，主要用来处理异常
  * @author yjiewei
  * @date 2021/8/6

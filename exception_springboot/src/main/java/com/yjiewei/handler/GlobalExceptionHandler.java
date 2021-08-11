@@ -1,5 +1,6 @@
 package com.yjiewei.handler;
 
+import com.yjiewei.exception.BusinessErrorException;
 import com.yjiewei.result.JsonResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +24,7 @@ public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     /**
-     * 缺少请求参数异常
+     * 1.缺少请求参数异常
      * @param ex HttpMessageNotReadableException
      * @return
      */
@@ -35,7 +36,7 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * 空指针异常
+     * 2.空指针异常
      * @param ex NullPointerException
      * @return
      */
@@ -47,7 +48,21 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * 系统异常 预期以外异常，具体异常会先被具体的拦截处理，最好写在最后面。
+     * 4.3 拦截自定义的业务异常，返回业务异常信息
+     * @param ex 自定义的异常
+     * @return 统一返回值
+     */
+    @ExceptionHandler(BusinessErrorException.class)
+    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+    public JsonResult handleBusinessError(BusinessErrorException ex) {
+        String code = ex.getCode();
+        // String message = ex.getMessage(); // 这个应该是异常的信息，这里并没有定义
+        String msg = ex.getMsg();
+        return new JsonResult(code, msg);
+    }
+
+    /**
+     * 3.系统异常 预期以外异常，具体异常会先被具体的拦截处理，最好写在最后面。
      * @param ex
      * @return
      */

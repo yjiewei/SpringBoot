@@ -1,5 +1,7 @@
 package com.yjiewei.controller;
 
+import com.yjiewei.constant.BusinessMsgEnum;
+import com.yjiewei.exception.BusinessErrorException;
 import com.yjiewei.result.JsonResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +36,17 @@ public class ExceptionController {
     public JsonResult testNull() {
         String s = null;
         s = s.replace("a","");
+        return new JsonResult();
+    }
+
+    // 4.4抛出自定义的异常，并友好展示错误信息
+    @GetMapping("business")
+    public JsonResult testBusinessException() {
+        try{
+            int i = 1/0;
+        }catch(Exception e){
+            throw new BusinessErrorException(BusinessMsgEnum.UNEXPECTED_EXCEPTION);
+        }
         return new JsonResult();
     }
 }
