@@ -15,6 +15,7 @@
         <module name="SpringBoot" />
         <module name="swagger2_springboot" />
         <module name="thymeleaf_springboot" />
+        <module name="aop_springboot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="aop_springboot" options="-parameters" />
       <module name="config_springboot" options="-parameters" />
       <module name="exception_springboot" options="-parameters" />
       <module name="json_spring_boot" options="-parameters" />
