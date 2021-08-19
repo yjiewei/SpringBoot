@@ -2,11 +2,10 @@ package com.yjiewei.controller;
 
 import com.yjiewei.entity.User;
 import com.yjiewei.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.sql.SQLException;
 
 /**
  * @author yjiewei
@@ -28,5 +27,15 @@ public class TestMybatisController {
     public User getUserById(@PathVariable("id") Integer id){
         User user = userService.getUserById(id);
         return user;
+    }
+
+    @PostMapping("/adduser")
+    public String addUser(@RequestBody User user) throws SQLException {
+        if (null != user) {
+            userService.insertUser(user);
+            return "success";
+        } else {
+            return "false";
+        }
     }
 }

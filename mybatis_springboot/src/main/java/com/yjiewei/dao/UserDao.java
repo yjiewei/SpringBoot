@@ -1,10 +1,7 @@
 package com.yjiewei.dao;
 
 import com.yjiewei.entity.User;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 /**
  * 通过找到对应的xml文件进行sql查询，或者通过注解的方式
@@ -22,4 +19,7 @@ public interface UserDao {
 
     @Select("select * from t_user where id = #{id} and username=#{username}")
     User getUserByIdAndName(@Param("id") Integer id, @Param("username") String username);
+
+    @Insert("insert into t_user (username, password, salt) values (#{username}, #{password}, #{salt})")
+    Integer insertUser(User user);
 }
