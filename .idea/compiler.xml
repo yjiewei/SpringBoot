@@ -12,6 +12,7 @@
         <module name="config_springboot" />
         <module name="mvc_springboot" />
         <module name="listener_springboot" />
+        <module name="interceptor_springboot" />
         <module name="json_springboot" />
         <module name="slf4j_springboot" />
         <module name="SpringBoot" />
@@ -29,6 +30,7 @@
       <module name="aop_springboot" options="-parameters" />
       <module name="config_springboot" options="-parameters" />
       <module name="exception_springboot" options="-parameters" />
+      <module name="interceptor_springboot" options="-parameters" />
       <module name="json_spring_boot" options="-parameters" />
       <module name="json_springboot" options="-parameters" />
       <module name="listener_springboot" options="-parameters" />

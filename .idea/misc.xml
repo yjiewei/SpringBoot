@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/aop_springboot/pom.xml" />
         <option value="$PROJECT_DIR$/mybatis_springboot/pom.xml" />
         <option value="$PROJECT_DIR$/listener_springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/interceptor_springboot/pom.xml" />
       </list>
     </option>
   </component>

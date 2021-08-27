@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/aop_springboot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config_springboot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/exception_springboot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/interceptor_springboot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/json_springboot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/listener_springboot/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mvc_springboot/src/main/java" charset="UTF-8" />
