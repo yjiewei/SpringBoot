@@ -8,16 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="exception_springboot" />
-        <module name="mybatis_springboot" />
+        <module name="redis_springboot" />
         <module name="config_springboot" />
-        <module name="mvc_springboot" />
-        <module name="listener_springboot" />
-        <module name="interceptor_springboot" />
         <module name="json_springboot" />
         <module name="slf4j_springboot" />
         <module name="SpringBoot" />
-        <module name="swagger2_springboot" />
         <module name="thymeleaf_springboot" />
+        <module name="mybatis_springboot" />
+        <module name="mvc_springboot" />
+        <module name="listener_springboot" />
+        <module name="interceptor_springboot" />
+        <module name="swagger2_springboot" />
         <module name="aop_springboot" />
       </profile>
     </annotationProcessing>
@@ -36,6 +37,7 @@
       <module name="listener_springboot" options="-parameters" />
       <module name="mvc_springboot" options="-parameters" />
       <module name="mybatis_springboot" options="-parameters" />
+      <module name="redis_springboot" options="-parameters" />
       <module name="slf4j_springboot" options="-parameters" />
       <module name="swagger2_springboot" options="-parameters" />
       <module name="thymeleaf_springboot" options="-parameters" />
