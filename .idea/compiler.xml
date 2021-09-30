@@ -18,6 +18,7 @@
         <module name="mvc_springboot" />
         <module name="listener_springboot" />
         <module name="interceptor_springboot" />
+        <module name="activemq_springboot" />
         <module name="swagger2_springboot" />
         <module name="aop_springboot" />
       </profile>
@@ -28,6 +29,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="activemq_springboot" options="-parameters" />
       <module name="aop_springboot" options="-parameters" />
       <module name="config_springboot" options="-parameters" />
       <module name="exception_springboot" options="-parameters" />
