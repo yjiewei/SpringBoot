@@ -1,11 +1,13 @@
 package com.yjiewei.service;
 
 import org.springframework.data.redis.core.HashOperations;
+import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 该对象操作的是String，也可以存放实体类，只需要将实体类转换成json字符串即可
@@ -65,5 +67,25 @@ public class RedisService {
         return (String) stringRedisTemplate.opsForHash().get(key, filedKey);
     }
 
+    /**
+     * leftPush list
+     * @param key
+     * @param value
+     * @return
+     */
+    public long setList(String key, String value) {
+        ListOperations<String, String> opsForList = stringRedisTemplate.opsForList();
+        return opsForList.leftPush(key, value); // 从左边推入
+    }
 
+    /**
+     * get list
+     * @param key
+     * @param start
+     * @param end
+     * @return
+     */
+    public List<String> getList(String key, long start, long end) {
+        return stringRedisTemplate.opsForList().range(key, start, end);
+    }
 }
