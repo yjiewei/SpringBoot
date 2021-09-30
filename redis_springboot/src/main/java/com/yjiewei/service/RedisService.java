@@ -1,5 +1,6 @@
 package com.yjiewei.service;
 
+import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
@@ -39,4 +40,30 @@ public class RedisService {
     public String getString(String key) {
         return stringRedisTemplate.opsForValue().get(key);
     }
+
+    /**
+     * set redis : hash类型
+     * hset key filed value
+     * @param key
+     * @param filedKey 域信息，把它看成key的属性就可以
+     * @param value
+     */
+    public void setHash(String key, String filedKey, String value){
+
+        HashOperations<String, Object, Object> hashOperation = stringRedisTemplate.opsForHash();
+        hashOperation.put(key, filedKey, value);
+    }
+
+    /**
+     * get redis : hash类型
+     * hget key filed
+     * @param key
+     * @param filedKey
+     * @return
+     */
+    public String getHash(String key, String filedKey) {
+        return (String) stringRedisTemplate.opsForHash().get(key, filedKey);
+    }
+
+
 }

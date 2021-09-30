@@ -35,5 +35,9 @@ public class RedisTest {
         User user = new User("yjiewei", "123456");
         redisService.setString("userinfo", JSON.toJSONString(user));
         logger.info("我这里存放的是实体对象信息{}，其实就是对象转字符串存储", redisService.getString("userinfo"));
+
+        // 测试Redis中的hash类型
+        redisService.setHash("user", "name", JSON.toJSONString(user));
+        logger.info("用户姓名是: {}", redisService.getHash("user", "name"));
     }
 }
