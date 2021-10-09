@@ -22,6 +22,7 @@ public class QueueConsumer {
     }
 
 
+    // 这里手动设置多个订阅，能够成功接收到 JmsListener监听时默认只接收queue消息，所以这里添加了factory
     /**
      * 接收订阅消息
      * @param msg
