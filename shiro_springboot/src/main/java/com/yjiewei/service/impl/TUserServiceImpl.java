@@ -6,7 +6,9 @@ import com.yjiewei.service.TUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * (TUser)表服务实现类
@@ -14,8 +16,9 @@ import java.util.List;
  * @author makejava
  * @since 2021-10-22 12:46:27
  */
-@Service("tUserService")
+@Service("userService")
 public class TUserServiceImpl implements TUserService {
+
     @Resource
     private TUserDao tUserDao;
 
@@ -75,5 +78,22 @@ public class TUserServiceImpl implements TUserService {
     @Override
     public boolean deleteById(Integer id) {
         return this.tUserDao.deleteById(id) > 0;
+    }
+
+    @Override
+    public Set<String> getRoles(String username) {
+        List<String> roles = tUserDao.getRoles(username);
+        return new HashSet<>(roles);
+    }
+
+    @Override
+    public Set<String> getPermissions(String username) {
+        List<String> permissions = tUserDao.getPermissions(username);
+        return new HashSet<>(permissions);
+    }
+
+    @Override
+    public TUser getByUsername(String username) {
+        return tUserDao.getByUsername(username);
     }
 }

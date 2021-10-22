@@ -2,6 +2,7 @@ package com.yjiewei.service;
 
 import com.yjiewei.entity.TUser;
 import java.util.List;
+import java.util.Set;
 
 /**
  * (TUser)表服务接口
@@ -51,5 +52,26 @@ public interface TUserService {
      * @return 是否成功
      */
     boolean deleteById(Integer id);
+
+    /**
+     * 通过用户名返回角色集
+     * @param username 用户名
+     * @return
+     */
+    Set<String> getRoles(String username);
+
+    /**
+     * 通过用户名获取对应的权限
+     * @param username
+     * @return
+     */
+    Set<String> getPermissions(String username);
+
+    /**
+     * 通过用户名返回对应的用户
+     * @param username
+     * @return
+     */
+    TUser getByUsername(String username);
 
 }

@@ -1,6 +1,7 @@
 package com.yjiewei.dao;
 
 import com.yjiewei.entity.TUser;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -61,5 +62,27 @@ public interface TUserDao {
      * @return 影响行数
      */
     int deleteById(Integer id);
+
+    /**
+     * 通过用户名来获取角色列表
+     * @param username
+     * @return
+     */
+    List<String> getRoles(String username);
+
+    /**
+     * 通过用户名来获取权限
+     * @param username
+     * @return
+     */
+    List<String> getPermissions(String username);
+
+    /**
+     * 通过用户名查询数据
+     *
+     * @param username
+     * @return 实例对象
+     */
+    TUser getByUsername(String username);
 
 }

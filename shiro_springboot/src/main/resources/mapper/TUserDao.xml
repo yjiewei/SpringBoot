@@ -75,4 +75,38 @@
         delete from shiro_springboot.t_user where id = #{id}
     </delete>
 
+    <!--根据用户名获取对应的角色-->
+    <select id="getRoles" resultType="java.lang.String">
+        select role.rolename
+        from t_role role
+            left join t_user user
+        on role.id = user.role_id
+        where user.username = #{username};
+    </select>
+
+    <!--根据用户名获取对应的权限-->
+    <select id="getPermissions" resultType="java.lang.String">
+        SELECT
+            permission.permissionname
+        FROM
+            t_permission permission
+                RIGHT JOIN (
+                SELECT
+                    role.id
+                FROM
+                    t_role role
+                        LEFT JOIN t_user USER ON role.id = USER.role_id
+                WHERE
+                    USER.username = #{username}
+            ) user_role ON user_role.id = permission.role_id;
+    </select>
+
+    <!--根据名字来查询用户-->
+    <select id="getByUsername" resultMap="BaseResultMap">
+        select
+            id, username, password, role_id
+        from shiro_springboot.t_user
+        where username = #{username}
+    </select>
+
 </mapper>

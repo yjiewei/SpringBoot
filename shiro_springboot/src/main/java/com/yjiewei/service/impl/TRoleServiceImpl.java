@@ -14,7 +14,7 @@ import java.util.List;
  * @author makejava
  * @since 2021-10-22 12:46:15
  */
-@Service("tRoleService")
+@Service("roleService")
 public class TRoleServiceImpl implements TRoleService {
     @Resource
     private TRoleDao tRoleDao;

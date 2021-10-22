@@ -14,7 +14,7 @@ import java.util.List;
  * @author makejava
  * @since 2021-10-22 12:45:53
  */
-@Service("tPermissionService")
+@Service("permissionService")
 public class TPermissionServiceImpl implements TPermissionService {
     @Resource
     private TPermissionDao tPermissionDao;
