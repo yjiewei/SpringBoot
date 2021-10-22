@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjiewei.dao.TRoleDao">
+
+    <resultMap id="BaseResultMap" type="com.yjiewei.entity.TRole">
+        <!--@Table t_role-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="rolename" column="rolename" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, rolename
+        from shiro_springboot.t_role
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, rolename
+        from shiro_springboot.t_role
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, rolename
+        from shiro_springboot.t_role
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="rolename != null and rolename != ''">
+                and rolename = #{rolename}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into shiro_springboot.t_role(rolename)
+        values (#{rolename})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shiro_springboot.t_role
+        <set>
+            <if test="rolename != null and rolename != ''">
+                rolename = #{rolename},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shiro_springboot.t_role where id = #{id}
+    </delete>
+
+</mapper>

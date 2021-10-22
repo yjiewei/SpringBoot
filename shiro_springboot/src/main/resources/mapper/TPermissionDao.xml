@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjiewei.dao.TPermissionDao">
+
+    <resultMap id="BaseResultMap" type="com.yjiewei.entity.TPermission">
+        <!--@Table t_permission-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="permissionname" column="permissionname" jdbcType="VARCHAR"/>
+        <result property="roleId" column="role_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, permissionname, role_id
+        from shiro_springboot.t_permission
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, permissionname, role_id
+        from shiro_springboot.t_permission
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, permissionname, role_id
+        from shiro_springboot.t_permission
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="permissionname != null and permissionname != ''">
+                and permissionname = #{permissionname}
+            </if>
+            <if test="roleId != null">
+                and role_id = #{roleId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into shiro_springboot.t_permission(permissionname, role_id)
+        values (#{permissionname}, #{roleId})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shiro_springboot.t_permission
+        <set>
+            <if test="permissionname != null and permissionname != ''">
+                permissionname = #{permissionname},
+            </if>
+            <if test="roleId != null">
+                role_id = #{roleId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shiro_springboot.t_permission where id = #{id}
+    </delete>
+
+</mapper>
